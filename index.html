@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Report Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #7898a1, #4d787d);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            color: #fff;
+        }
+
+        th {
+            background-color: #1e3c72;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #4d787d;
+            background: linear-gradient(to bottom right, #7898a1, #4d787d);
+        }
+
+        tr:hover {
+            background-color: #33415c;
+            transition: background-color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Weekly Report Data</h1>
+    <table id="reportTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        const reportData = [
+            { Date: '2024-01-01', Quantity: 30, Price: 300 },
+            { Date: '2024-01-02', Quantity: 15, Price: 150 },
+            { Date: '2024-01-08', Quantity: 30, Price: 300 },
+            { Date: '2024-01-15', Quantity: 25, Price: 250 },
+            { Date: '2024-02-01', Quantity: 50, Price: 500 },
+            { Date: '2024-02-15', Quantity: 20, Price: 200 }
+        ];
+
+        const tableBody = document.querySelector("#reportTable tbody");
+
+        reportData.forEach(row => {
+            const tr = document.createElement('tr');
+            Object.values(row).forEach(cellData => {
+                const td = document.createElement('td');
+                td.textContent = cellData;
+                tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>
